@@ -9,7 +9,7 @@ class Course:
         self.demand = int(args[3])
         self.credits = float(args[4])
         
-        self.conflict_sections = list()
+        self.conflict_sections = [self.section]
 
         for x in args[5:]:
             self.conflict_sections.append(str(x))
