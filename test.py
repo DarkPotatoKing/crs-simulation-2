@@ -13,12 +13,17 @@ def main():
     # multiple conflict sections
     course3 = Course('Subject 12', 'JKL', 10, 10, 3.0, 'MNO', 'PQR', 'STU')
 
+    # initializing Course with whitespaces in args
+    course4 = Course('     Subject 13    ', '   ABC    ', 10, 10, 3.0, '  LOL   ')
+
     print '\nSubject w/o conflict sections'
     print course1
     print '\nSubject w/ 1 conflict section'
     print course2
     print '\nSubject w/ multiple conflict sections'
     print course3
+    print '\ninitializing Course with whitespaces in args'
+    print course4
 
     # test if class is added to a desired classes succesfully
     print '\ntest if class is added to a desired classes succesfully'
