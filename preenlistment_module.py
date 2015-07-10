@@ -5,7 +5,13 @@ class PreenlistmentModule:
     desired_classes = list()
 
     def load(self, filename):
-        pass
+        self.desired_classes = list()
+        with open(filename, 'r') as f:
+            classes = [x.strip() for x in f.readlines()]
+            for x in classes:
+                args = x.split(',')
+                # print args
+                self.add_class(*args)
 
     def batchrun(self, num_runs = 1):
         pass
