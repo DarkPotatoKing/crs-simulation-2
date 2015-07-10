@@ -36,5 +36,16 @@ def main():
     pm.load('sample.csv')
     print pm
 
+    # test if the conflict resolution works
+    print '\ntest if the conflict resolution works'
+    print 'conflict between...'
+    print pm.desired_classes[0], pm.desired_classes[1]
+    print pm.has_conflict(pm.desired_classes[0],pm.desired_classes[1])
+    print pm.desired_classes[0], pm.desired_classes[2]
+    print pm.has_conflict(pm.desired_classes[0],pm.desired_classes[2])
+    print pm.desired_classes[0], pm.desired_classes[3]
+    print pm.has_conflict(pm.desired_classes[0],pm.desired_classes[3])
+    
+
 if __name__ == '__main__':
     main()
