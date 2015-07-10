@@ -23,11 +23,6 @@ class PreenlistmentModule:
         return str(self.desired_classes)
 
     @staticmethod
-    def has_conflict(course1, course2):
-        # check if they are the same subject or overlapping schedule
-        return is_same_subject(course1, course2) or is_overlapping_schedule(course1, course2)
-
-    @staticmethod
     def is_same_subject(course1, course2):
         return course1.subject == course2.subject
 
@@ -46,3 +41,9 @@ class PreenlistmentModule:
 
         # if the none of the above conditions are satisfied, return False
         return False
+
+    @staticmethod
+    def has_conflict(course1, course2):
+        # check if they are the same subject or overlapping schedule
+        return PreenlistmentModule.is_same_subject(course1, course2) or PreenlistmentModule.is_overlapping_schedule(course1, course2)
+
