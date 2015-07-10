@@ -26,5 +26,10 @@ def main():
     pm.add_class(*['Subject 13','VWX', 10, 10, 3.0, 'YZA', 'BCD', 'EFG'])
     print pm
 
+    # test if preenlistment module loads .csv file successfully
+    print '\ntest if preenlistment module loads .csv file successfully'
+    pm.load('sample.csv')
+    print pm
+
 if __name__ == '__main__':
     main()
