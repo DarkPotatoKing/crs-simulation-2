@@ -1,15 +1,16 @@
 class Course:
     """docstring for Course"""
-    def __init__(self, subject, section, available_slots, demand, credits, *args):
-        self.subject = str(subject)
-        self.section = str(section)
-        self.available_slots = int(available_slots)
-        self.demand = int(demand)
-        self.credits = float(credits)
+    
+    def __init__(self, *args):
+        self.subject = str(args[0])
+        self.section = str(args[1])
+        self.available_slots = int(args[2])
+        self.demand = int(args[3])
+        self.credits = float(args[4])
         
         self.conflict_sections = list()
 
-        for x in args:
+        for x in args[5:]:
             self.conflict_sections.append(str(x))
 
     def __repr__(self):
