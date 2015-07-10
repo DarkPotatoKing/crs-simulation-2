@@ -46,9 +46,9 @@ def main():
     print pm.desired_classes[0], pm.desired_classes[3]
     print pm.has_conflict(pm.desired_classes[0],pm.desired_classes[3])
     
-    print '\n\nSimulating a batchrun'
+    print '\n\nSimulating a batchrun (5 runs)'
     pm.load('save.csv')
-    pm.batchrun()
+    pm.batchrun(5)
 
 if __name__ == '__main__':
     main()
