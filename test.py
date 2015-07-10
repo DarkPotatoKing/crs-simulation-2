@@ -1,4 +1,5 @@
 from course import Course
+from preenlistment_module import PreenlistmentModule as PM
 
 def main():
     # test if course gets initialized properly
@@ -16,8 +17,14 @@ def main():
     print course1
     print '\nSubject w/ 1 conflict section'
     print course2
-    print '\noSubject w/ multiple conflict sections'
+    print '\nSubject w/ multiple conflict sections'
     print course3
+
+    # test if class is added to a desired classes succesfully
+    print '\ntest if class is added to a desired classes succesfully'
+    pm = PM()
+    pm.add_class(*['Subject 13','VWX', 10, 10, 3.0, 'YZA', 'BCD', 'EFG'])
+    print pm
 
 if __name__ == '__main__':
     main()
