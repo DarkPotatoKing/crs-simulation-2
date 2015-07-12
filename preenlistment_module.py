@@ -11,6 +11,8 @@ class PreenlistmentModule:
         with open(filename, 'r') as f:
             classes = [x.strip() for x in f.readlines()]
             for x in classes:
+                if not x:
+                    continue
                 args = x.split(',')
                 # print args
                 self.add_class(*args)
