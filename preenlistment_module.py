@@ -82,19 +82,21 @@ class PreenlistmentModule:
         subjects = [x.subject for x in total_num_times_granted]
         subjects = sorted(list(set(subjects)))
         cumulative_stats = dict()
+        units = dict()
 
         for x in subjects:
             cumulative_stats[x] = 0
 
         for x in total_num_times_granted:
             name = x.subject
+            units[name] = x.credits
             cumulative_stats[name] += total_num_times_granted[x]
 
         print 'Cumulative Stats'
-        print 'Subject\t\t[Times Granted/Num runs]'
+        print 'Subject\tUnits\t\t[Times Granted/Num runs]'
         # print stats of each subject
         for x in cumulative_stats:
-            print '{}\t\t({}/{})\t{:.0%}'.format(x, cumulative_stats[x], num_runs, cumulative_stats[x] / num_runs)
+            print '{}\t{}\t\t({}/{})\t{:.0%}'.format(x, units[x],cumulative_stats[x], num_runs, cumulative_stats[x] / num_runs)
         print '\n'
 
     def add_class(self, *args):
