@@ -18,6 +18,8 @@ class PreenlistmentModule:
     def batchrun(self, num_runs = 1):
         total_run_units = 0.0
         total_num_times_granted = dict()
+        min_units = 999
+        max_units = 0
 
         # create a dictionary of number of times a subject is granted
         # set everything to zero at the start
@@ -52,6 +54,11 @@ class PreenlistmentModule:
                         units += x.credits
                         total_num_times_granted[x] += 1
 
+            if units > max_units:
+                max_units = units
+            if units < min_units:
+                min_units = units
+
             # print granted classes
             for x in granted_classes:
                 print '{}\t{}\t({})'.format(x.subject, x.section, x.credits)
@@ -61,6 +68,8 @@ class PreenlistmentModule:
         # print runs summary
         print '\n\nRuns Summary ({} runs)'.format(num_runs)
         print 'Average units:\t{}'.format(total_run_units/num_runs)
+        print 'Min units:\t{}'.format(min_units)
+        print 'Max units:\t{}'.format(max_units)
         print 'Subject\tSection\t[Times Granted/Num runs]'
         # print stats of each subject
         for x in self.desired_classes:
