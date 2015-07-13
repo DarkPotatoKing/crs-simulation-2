@@ -20,6 +20,8 @@ class PreenlistmentModule:
     def batchrun(self, num_runs = 1):
         total_run_units = 0.0
         total_num_times_granted = dict()
+        min_units = 999
+        max_units = 0
 
         # create a dictionary of number of times a subject is granted
         # set everything to zero at the start
@@ -54,6 +56,11 @@ class PreenlistmentModule:
                         units += x.credits
                         total_num_times_granted[x] += 1
 
+            if units > max_units:
+                max_units = units
+            if units < min_units:
+                min_units = units
+
             # print granted classes
             for x in granted_classes:
                 print '{}\t{}\t({})'.format(x.subject, x.section, x.credits)
@@ -63,12 +70,36 @@ class PreenlistmentModule:
         # print runs summary
         print '\n\nRuns Summary ({} runs)'.format(num_runs)
         print 'Average units:\t{}'.format(total_run_units/num_runs)
+        print 'Min units:\t{}'.format(min_units)
+        print 'Max units:\t{}'.format(max_units)
         print 'Subject\tSection\t[Times Granted/Num runs]'
         # print stats of each subject
         for x in self.desired_classes:
             print '{}\t{}\t({}/{})\t{:.0%}'.format(x.subject,x.section,total_num_times_granted[x],num_runs,total_num_times_granted[x]/num_runs)
+        print '\n'
+        self.print_cumulative_stats(total_num_times_granted, num_runs)
 
+    @staticmethod
+    def print_cumulative_stats(total_num_times_granted, num_runs):
+        subjects = [x.subject for x in total_num_times_granted]
+        subjects = sorted(list(set(subjects)))
+        cumulative_stats = dict()
+        units = dict()
 
+        for x in subjects:
+            cumulative_stats[x] = 0
+
+        for x in total_num_times_granted:
+            name = x.subject
+            units[name] = x.credits
+            cumulative_stats[name] += total_num_times_granted[x]
+
+        print 'Cumulative Stats'
+        print 'Subject\tUnits\t\t[Times Granted/Num runs]'
+        # print stats of each subject
+        for x in cumulative_stats:
+            print '{}\t{}\t\t({}/{})\t{:.0%}'.format(x, units[x],cumulative_stats[x], num_runs, cumulative_stats[x] / num_runs)
+        print '\n'
 
     def add_class(self, *args):
         self.desired_classes.append(Course(*args))
