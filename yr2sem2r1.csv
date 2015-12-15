@@ -1,0 +1,20 @@
+Math 55, THQ, 60, 72, 3.0
+Math 55, WFQ, 60, 73, 3.0
+Philo 1, THW, 25, 71, 3.0, TMB, THJ
+Philo 1, THV, 25, 84, 3.0, THE
+Philo 1, THW, 25, 99, 3.0, TMB
+Philo 1, WFW, 25, 115, 3.0, WFJ
+Philo 1, WFU, 25, 120, 3.0, WFD
+Philo 1, THU, 25, 141, 3.0, THD, THE
+Philo 1, THX, 25, 191, 3.0, TMB
+Philo 1, WFQ, 25, 125, 3.0
+Philo 1, THQ, 25, 152, 3.0
+PE 2, WFK, 25, 43, 0.0
+PE 2, WFJ, 25, 36, 0.0
+PE 2, WFK, 24, 22, 0.0
+PE 2, THC, 25, 44, 0.0
+PE 2, THE, 24, 56, 0.0, THU, THV
+PE 2, WFD, 25, 54, 0.0, WFU
+PE 2, THE, 30, 52, 0.0, THU, THV
+PE 2, THD, 30, 75, 0.0, THU
+PE 2, THJ, 30, 65, 0.0, THX, THW
